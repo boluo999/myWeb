@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testMouse</title>
+    <style>
+        html,body{
+            height: 100%;
+            font-size: 100px;
+            text-align: center;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body onclick="gogogo()">
+
+</body>
+<script>
+    var num = 60;
+    function gogogo() {
+        if(num%7==0||num%10==7){
+            document.body.innerHTML = num+"过";
+        }
+        else if((Math.floor(num/10))%10==7){
+            document.body.innerHTML = num+"过2";
+        }
+        else {
+            document.body.innerHTML = num;
+        }
+        num = num + 1;
+    }
+</script>
+</html>

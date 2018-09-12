@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouseControlMusic</title>
+    <style>
+        #bgmButton{
+            height: 800px;
+            width: 800px;
+            /*background-image: url("../003OhMyGod/images/1.png");*/
+        }
+    </style>
+</head>
+<body>
+<audio id="bgm" src="../001Basics/mp3/dustInfireworks.mp3" controls="controls" autoplay="autoplay"></audio>
+<div id="bgmButton" onclick="control()"></div>
+</body>
+<script>
+    var isPlaying = "true";
+
+    function control() {
+        if (isPlaying) {
+            document.getElementById("bgm").pause();
+            document.getElementById("bgmButton").style.backgroundImage = "url('myWeb/001Basics/images/images01.jpeg')";
+            isPlaying = !isPlaying;
+        }
+        else {
+            document.getElementById("bgm").play();
+            document.getElementById("bgmButton").style.backgroundImage = "url('../003OhMyGod/images/1.png')";
+            isPlaying = !isPlaying;
+        }
+
+    }
+</script>
+</html>
