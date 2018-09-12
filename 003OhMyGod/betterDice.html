@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice</title>
+    <style>
+        body{
+            font-size: 80px;
+        }
+    </style>
+</head>
+<body>
+<p id="message"></p>
+</body>
+</html>
+<script>
+    var random = Math.random();
+    var binggo = false;
+    var str ;
+
+
+    function guess() {
+        if (binggo) {
+            return;
+        }
+        var guess = prompt("您猜色子是多少？？");
+        // "3"/1=3 ,除号会让赋值语句两边变成数值型
+        if(!Number.isInteger(guess/1)||guess>6||guess<1){
+            document.getElementById("message").innerHTML="您的输入有误";
+            return;
+        }
+
+        var diff = Math.abs(guess - random);
+
+        console.info("random===" + random);
+        console.info("guess===" + guess);
+        console.info("diff===" + diff);
+
+
+        if (guess == random) {
+            str = "中了！！" + "<img src=\"images/" + random + ".png\" height='100' width='100'>";
+            binggo = true;
+        }
+
+        else if (guess > random) {
+            if (diff > 1) {
+                str = "您猜得太大了！！";
+            }
+            else {
+                str = "您猜得有点大！！";
+            }
+        }
+        else {
+            if (diff > 1) {
+                str = "您猜得太小了！！";
+            }
+            else {
+                str = "您猜得有点小！！";
+            }
+        }
+        document.getElementById("message").innerHTML =str; // 还是好奇怪，赋值为什么这样反着写， 而且放在使用的后面。
+        // str =document.getElementById("message").innerHTML ; // 这样写就不行
+    }
+
+    random = Math.floor(random*6)+1;
+    console.info(random);
+    // document.write(a);
+    // document.write("<img src=\"images/"+a+".png\" height='100' width='100'>");
+    guess();
+    guess();
+    // guess();
+
+</script>
+

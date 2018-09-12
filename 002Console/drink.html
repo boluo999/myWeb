@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drink</title>
+    <script>
+        document.write("我是向页面输入文字！");
+        function isInteger(c) {
+            return c%1 === 0;
+        }
+
+        var price = prompt("咖啡多少钱一杯");
+        if(isNaN(price)){
+            alert("这根本不是数字！！");
+            alert("请重新输入！！")
+        }
+        else {
+            var count = prompt(price+"元一杯，您要多少杯");
+            if(isNaN(count)){
+                alert("这根本不是数字！！")
+            }
+            else {
+                if(isInteger(count)){
+                    if(count%2==0){
+                        totalPrice = count*price*0.75;
+                    }
+                    else {
+                        totalPrice = count*price*0.75+price*0.25;
+                    }
+                    alert("您总共消费了"+totalPrice+"元");
+                }
+                else {
+                    alert("请输入一个整数")
+                }
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
