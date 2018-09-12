@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dice</title>
+    <style>
+        body{
+            font-size: 80px;
+        }
+    </style>
 </head>
 <body>
-
+<p id="message"></p>
 </body>
 </html>
+<script>
+    var random = Math.random();
+    var binggo = false;
+    function guess() {
+        if(binggo){
+            return;
+        }
+        var guess = prompt("您猜色子是多少？？");
+        var diff = Math.abs(guess-random);
+        console.info("random==="+random);
+        console.info("guess==="+guess);
+        console.info("diff==="+diff);
+
+
+        if(guess==random){
+            document.getElementById("message").innerHTML="中了！！" + "<img src=\"images/"+random+".png\" height='100' width='100'>";
+            // document.write("中了！！！");
+            // document.write("<img src=\"images/"+a+".png\" height='100' width='100'>");
+            binggo = true;
+        }
+        else if(guess>random && diff>1){
+            // document.write("您猜大了！");
+            document.getElementById("message").innerHTML="您猜得太大了！！";
+        }
+        else if(guess>random && diff<=1){
+            // document.write("您猜大了！");
+            document.getElementById("message").innerHTML="您猜得有点大！！";
+        }
+        else if(guess<random && diff>1){
+            // document.write("您猜大了！");
+            document.getElementById("message").innerHTML="您猜得太小了！！";
+        }
+        else if(guess<random && diff<=1){
+            // document.write("您猜小了！");
+            document.getElementById("message").innerHTML="您猜得有点小！！";
+        }
+    }
+    random = Math.floor(random*6)+1;
+    console.info(random);
+    // document.write(a);
+    // document.write("<img src=\"images/"+a+".png\" height='100' width='100'>");
+    guess();
+    guess();
+    // guess();
+
+</script>
+
